@@ -1,8 +1,21 @@
-<div class="header">
-  <h3 class="text-muted">chatty</h3>
-</div>
+<div ng-controller="MessageCtrl">
 
-<h4>Latest Chats:</h4>
-<div class="jumbotron">
+  <label>Add a Message</label>
+  <input type='text' ng-model="newMessage.message">
+  <input type='text' ng-model="newMessage.userName">
+  <button ng-click="addMessage()">Add Message</button>
 
+
+  <div class="header">
+    <h3 class="text-muted">chatty</h3>
+  </div>
+
+  <h4>Latest Chats:</h4>
+  <div class="jumbotron">
+    <div ng-repeat="message in messages">
+      <h5>{{ message.userName }}</h5>
+      <p>{{ message.message }} {{ message.timeStamp | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+    </div>
+
+  </div>
 </div>
